@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ice Cream Machine</title>
+    <script src="https://unpkg.com/jspsych@7.1.2"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-video-keyboard-response@1.1.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-image-keyboard-response@1.1.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-preload@1.1.0"></script>
+    <link href="https://unpkg.com/jspsych@7.1.2/css/jspsych.css" rel="stylesheet" type="text/css" />
+  </style>
+  </style>
+  </head>
+  <body>
+  </body>
+  <script>
+    var jsPsych = initJsPsych({
+  on_finish: function() {
+    jsPsych.data.get().localSave('csv','mydata.csv');
+  }
+}); 
+    var timeline = [];
+    var preload = {
+  type: jsPsychPreload,
+  video: ['videos/IC1.mp4', 'videos/Chocolate.mp4', 'videos/Yellow_c.mp4', 'videos/Vanilla.mp4',  'videos/red_v.mp4']
+}    
+timeline.push(preload);
+    var Intro = {
+      type: jsPsychImageKeyboardResponse,
+      stimulus: "IC.png",
+      stimulus_width: '1020',
+      stimulus_height: '520',
+    };
+    timeline.push(Intro);
+   var ICP = {
+      type: jsPsychVideoKeyboardResponse,
+      choices: ['enter'],
+      width: '920',
+      height: '686',
+      stimulus: ['videos/IC1.mp4']
+};
+timeline.push(ICP);
+var Box = {
+      type: jsPsychImageKeyboardResponse,
+      choices: ['enter'],
+      stimulus_width: '920',
+      stimulus_height: '480',
+      stimulus: ['Box.png']
+};
+timeline.push(Box);
+var BoxC = {
+      type: jsPsychImageKeyboardResponse,
+      choices: ['enter'],
+      stimulus_width: '920',
+      stimulus_height: '480',
+      stimulus: ['Boxwc.png']
+};
+timeline.push(BoxC);
+var Choc = {
+      type: jsPsychVideoKeyboardResponse,
+      choices: ['enter'],
+      width: '920',
+      height: '686',
+      stimulus: ['videos/Chocolate.mp4']
+    };
+timeline.push(Choc);
+var YC = {
+      type: jsPsychVideoKeyboardResponse,
+      choices: ['enter'],
+      width: '920',
+      height: '686',
+      stimulus: ['videos/Yellow_c.mp4']
+};
+timeline.push(YC);
+var Van = {
+      type: jsPsychVideoKeyboardResponse,
+      choices: ['enter'],
+      width: '920',
+      height: '686',
+      stimulus: ['videos/Vanilla.mp4']
+};
+timeline.push(Van);
+var RV = {
+      type: jsPsychVideoKeyboardResponse,
+      choices: ['enter'],
+      width: '920',
+      height: '686',
+      stimulus: ['videos/red_v.mp4']
+};
+timeline.push(RV);
+var BC = {
+      type: jsPsychVideoKeyboardResponse,
+      choices: ['enter'],
+      width: '920',
+      height: '686',
+      stimulus: ['videos/Bunny_c.mp4']
+};
+timeline.push(BC);
+var MV = {
+      type: jsPsychVideoKeyboardResponse,
+      choices: ['enter'],
+      width: '920',
+      height: '686',
+      stimulus: ['videos/monkey_v.mp4']
+};
+timeline.push(MV);
+var Vchoice = {
+      type: jsPsychImageKeyboardResponse,
+      choices: ['c', 'i'],
+      data: {
+    task: 'response'
+  },
+      stimulus_width: '1220',
+      stimulus_height: '620',
+      stimulus: ['v_choice.png']
+};
+timeline.push(Vchoice);
+var Cchoice = {
+      type: jsPsychImageKeyboardResponse,
+      choices: ['c', 'i'],
+      data: {
+    task: 'response'
+  },
+      stimulus_width: '1220',
+      stimulus_height: '620',
+      stimulus: ['c_choice.png']
+};
+timeline.push(Cchoice);
+var  bun_choice = {
+      type: jsPsychVideoKeyboardResponse,
+      choices: ['c', 'i'],
+      data: {
+    task: 'response'
+  },
+      width: '1020',
+      height: '786',
+      stimulus: ['videos/Bun_choice.mp4']
+};
+timeline.push(bun_choice);
+var  mon_choice = {
+      type: jsPsychVideoKeyboardResponse,
+      choices: ['c', 'i'],
+      data: {
+    task: 'response'
+  },
+      width: '1020',
+      height: '786',
+      stimulus: ['videos/mon_choice.mp4']
+};
+timeline.push(mon_choice);
+var MB = {
+      type: jsPsychImageKeyboardResponse,
+      choices: ['enter'],
+      stimulus_width: '1020',
+      stimulus_height: '520',
+      stimulus: ['mon_bun.png']
+};
+timeline.push(MB);
+var  T1 = {
+      type: jsPsychVideoKeyboardResponse,
+      choices: ['c', 'i'],
+      data: {
+    task: 'response'
+  },
+      width: '1020',
+      height: '786',
+      stimulus: ['videos/MYR_T.mp4']
+};
+timeline.push(T1);
+var  T2 = {
+      type: jsPsychVideoKeyboardResponse,
+      choices: ['c', 'i'],
+      data: {
+    task: 'response'
+  },
+      width: '1020',
+      height: '786',
+      stimulus: ['videos/BRY_T.mp4']
+      
+};
+timeline.push(T2);
+var  T3 = {
+      type: jsPsychVideoKeyboardResponse,
+      choices: ['c', 'i'],
+      data: {
+    task: 'response'
+  },
+      width: '1020',
+      height: '786',
+      stimulus: ['videos/BYR_T.mp4']
+};
+timeline.push(T3);
+var  T4 = {
+      type: jsPsychVideoKeyboardResponse,
+      choices: ['c', 'i'],
+      data: {
+    task: 'response'
+  },
+      width: '1020',
+      height: '786',
+      stimulus: ['videos/MRY_T.mp4']
+};
+timeline.push(T4);
+var  End = {
+      type: jsPsychVideoKeyboardResponse,
+      width: '920',
+      height: '686',
+      stimulus: ['videos/End.mp4']
+};
+timeline.push(End);
+jsPsych.run(timeline);
+    
+  </script>
+</html>
